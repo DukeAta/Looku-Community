@@ -1,0 +1,34 @@
+// Place all the styles related to the users controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+/*table layout - last column*/
+.avartar img{
+    width: 120px;
+    height: 120px;
+    border-radius: 60px;
+}
+#edit_user {
+  ul { margin-left: 45px;}
+  .form-group p {
+    font-size: 14px;
+    color: #3F00FF;
+    font-style: italic;
+    text-decoration: underline;
+  }
+}
+.notice-sign-up {
+  margin-top: 20px;
+}
+
+#user_image{
+  top: 150px;
+  font-family: calibri;
+  width: 105px;
+  padding: 10px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border: 1px dashed #BBB; 
+  text-align: center;
+  background-color: #DDD;
+  cursor:pointer;
+}

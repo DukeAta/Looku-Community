@@ -1,0 +1,144 @@
+
+<div class="left-sidebar">
+    <div class="row left-sb-title">
+      <i class="fa fa-th-list" style="color: #e67e22; margin-right: 10px;"></i><strong>CATEGORIES</strong>
+    </div>
+    <ul class="list-group no-margin">
+      <!-- Without left and right borders, extra small horizontal padding -->
+      <li class="list-group-item no-border-hr ct-list-item">
+        <%= link_to 'Essays', documents_path(category: 'essay'), style: params[:category] == 'essay' ? 'color: #e67e22' :'' %>
+        <span class="label pull-right"><%= Document.where(category: 'essay').count %></span>
+      </li>
+      <!-- / .list-group-item -->
+      <!-- Without left and right borders, extra small horizontal padding -->
+      <li class="list-group-item no-border-hr ct-list-item">
+        <%= link_to 'Dissertations', documents_path(category: 'dissertation'), style: params[:category] == 'dissertation' ? 'color: #e67e22' :'' %>
+        <span class="label pull-right"><%= Document.where(category: 'dissertation').count %></span>
+      </li> <!-- / .list-group-item -->
+      <!-- Without left and right borders, without bottom border, extra small horizontal padding -->
+      <!--<li class="list-group-item no-border-hr ct-list-item">-->
+        <!--Videos <span class="label pull-right">12</span>-->
+      <!--</li> &lt;!&ndash; / .list-group-item &ndash;&gt;-->
+    </ul>
+
+    <div style="height:30px"></div>
+
+    <div class="row left-sb-title">
+      <i class="fa fa-th-list" style="color: #e67e22; margin-right: 10px;"></i><strong>VERIFIED</strong>
+    </div>
+    <ul class="list-group no-margin">
+      <!-- Without left and right borders, extra small horizontal padding -->
+      <li class="list-group-item no-border-hr ct-list-item">
+        <%= link_to 'Verified', documents_path(is_verified: true), style: params[:is_verified] == "true" ? 'color: #e67e22' :'' %>
+        <span class="label pull-right"><%= Document.where(is_verified: true).count %></span>
+      </li>
+      <!-- / .list-group-item -->
+      <!-- Without left and right borders, extra small horizontal padding -->
+      <li class="list-group-item no-border-hr ct-list-item">
+        <%= link_to 'Not Verified', documents_path(is_verified: false), style: params[:is_verified] == "false" ? 'color: #e67e22' :'' %>
+        <span class="label pull-right"><%= Document.where(is_verified: false).count %></span>
+      </li> <!-- / .list-group-item -->
+      <!-- Without left and right borders, without bottom border, extra small horizontal padding -->
+      <!--<li class="list-group-item no-border-hr ct-list-item">-->
+        <!--Videos <span class="label pull-right">12</span>-->
+      <!--</li> &lt;!&ndash; / .list-group-item &ndash;&gt;-->
+    </ul>
+
+    <div style="height:30px"></div>
+
+    <div class="row left-sb-title">
+      <i class="fa fa-th-list" style="color: #e67e22; margin-right: 10px;"></i><strong>FAVORITE</strong>
+    </div>
+
+    <ul class="list-group no-margin">
+      <!-- Without left and right borders, extra small horizontal padding -->
+      <li class="list-group-item no-border-hr ct-list-item">
+        <%= link_to 'Your Favorite', documents_path(favorite: 'favorite'), style: params[:favorite] == "favorite" ? 'color: #e67e22' :'' %>
+        <span class="label pull-right">
+          <%= Vote.where(user_id: current_user).map(&:document).count %>
+        </span>
+      </li>
+    </ul>
+
+
+    <div style="height:30px"></div>
+
+    <div class="row left-sb-title">
+      <i class="fa fa-th-list" style="color: #e67e22; margin-right: 10px;"></i><strong>RATING</strong>
+    </div>
+
+    <ul class="list-group no-margin">
+      <!-- Without left and right borders, extra small horizontal padding -->
+      <li class="list-group-item no-border-hr ct-list-item">
+        <%= link_to documents_path(rating: 5), style: params[:rating] == 5 ? 'color: #e67e22' :'' do %>
+          <% 5.times do %>
+            <img alt="3" src="/assets/star-on.png" title="gorgeous">
+          <% end %>
+        <% end %>
+        <span class="label pull-right">
+          <%= count_doc_rating 5 %>
+        </span>
+      </li>
+
+       <li class="list-group-item no-border-hr ct-list-item">
+        <%= link_to documents_path(rating: 4), style: params[:rating] == 4 ? 'color: #e67e22' :'' do %>
+          <% 4.times do %>
+            <img alt="3" src="/assets/star-on.png" title="good">
+          <% end %>
+        <% end %>
+        <span class="label pull-right">
+          <%= count_doc_rating 4 %>
+        </span>
+      </li>
+
+       <li class="list-group-item no-border-hr ct-list-item">
+        <%= link_to documents_path(rating: 3), style: params[:rating] == 3 ? 'color: #e67e22' :'' do %>
+          <% 3.times do %>
+            <img alt="3" src="/assets/star-on.png" title="regular">
+          <% end %>
+        <% end %>
+        <span class="label pull-right">
+          <%= count_doc_rating 3 %>
+        </span>
+      </li>
+
+       <li class="list-group-item no-border-hr ct-list-item">
+        <%= link_to documents_path(rating: 2), style: params[:rating] == 2 ? 'color: #e67e22' :'' do %>
+          <% 2.times do %>
+            <img alt="3" src="/assets/star-on.png" title="poor">
+          <% end %>
+        <% end %>
+        <span class="label pull-right">
+          <%= count_doc_rating 2 %>
+        </span>
+      </li>
+
+       <li class="list-group-item no-border-hr ct-list-item">
+        <%= link_to documents_path(rating: 1), style: params[:rating] == 1 ? 'color: #e67e22' :'' do %>
+          <img alt="3" src="/assets/star-on.png" title="bad">
+        <% end %>
+        <span class="label pull-right">
+          <%= count_doc_rating 1 %>
+        </span>
+      </li>
+    </ul>
+
+
+    <!--<div class="row left-sb-title">-->
+     <!--<i class="fa fa-bookmark"  style="color: #e67e22; margin-right: 10px;"></i><strong> POPULAR SKILLS</strong>-->
+    <!--</div>-->
+    <!--<ul class="list-group no-margin second-box">-->
+      <!--&lt;!&ndash; Without left and right borders, extra small horizontal padding &ndash;&gt;-->
+        <!--<% 10.times do %>-->
+          <!--<li class="clearfix js-tag-item tag-item">-->
+            <!--<div class="pull-left tag-label js-tag-label" >-->
+              <!--<i class="fa fa-circle" style='color:white'></i>-->
+                <!--Website development-->
+              <!--</a>-->
+            <!--</div>-->
+            <!--<div class="pull-right tag-count js-tag-count">6,306</div>-->
+          <!--</li>-->
+        <!--<% end -%>-->
+    <!--</ul>-->
+</div>
+

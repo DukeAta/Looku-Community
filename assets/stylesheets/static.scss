@@ -1,0 +1,46 @@
+// Place all the styles related to the static controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.about-header, .about-large-header {
+  background: #ffffff;
+  color: #666;
+  vertical-align: middle;
+  text-align: center;
+}
+
+.about-header {
+  padding-top: 100px;
+  border-radius: 125px;
+  height: 250px;
+  background-color: #f36f21;
+  color: #FFF;
+  -webkit-transition: all 400ms;
+  -moz-transition: all 400ms;
+  -o-transition: all 400ms;
+  transition: all 400ms;
+}
+.about-header:hover{
+  background-color: #FFF;
+  color: #f36f21;
+  border: 1px solid #f36f21;
+}
+.about-large-header {
+  padding-top: 30px;
+  border-radius: 20px;
+  height: 100px;
+}
+
+.about-item-description {
+  text-align: justify !important;
+  padding: 30px;
+  border-radius: 15px;
+  background: #ffffff;
+  color: #666;
+  height: 180px;
+  margin-top: 50px;
+  border: 1px solid #f36f21;
+}
+
+.about-orange-border {
+  border: 1px solid #f36f21;
+}

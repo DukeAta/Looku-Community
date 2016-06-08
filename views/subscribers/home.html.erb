@@ -1,0 +1,67 @@
+<div class="row documents-page" style="background-color: transparent; margin-top: -20px;">
+
+  <div class="container-fluid bg-color" style="padding: 0; margin-left: -30px; margin-right: -30px;">
+
+    <div id="site-wrapper">
+
+      <section class="clearfix section_padding grey-bg" id="aboutContent">
+
+        <div class="container" style="padding: 0;">
+
+          <div class="columns ten offset-by-three" id="about">
+
+            <h2 class="center_title home-headings-uploader" style="text-align: center;">
+              Get started with Looku today!
+            </h2>
+            <div class="col-md-8 col-md-offset-2" style="margin-bottom: 30px;">
+              <ul class="col-md-8 col-md-offset-2">
+                <li class="get-start-looku-item" style="list-style: none">
+                  <i class="fa fa-check-square-o" style="color: green"></i>
+                  Get paid every time your academic work is viewed by students
+                </li>
+                <li class="get-start-looku-item" style="list-style: none">
+                  <i class="fa fa-check-square-o" style="color: green"></i>
+                  Fast-track your employment prospects by sharing your profile
+                </li>
+                <li class="get-start-looku-item" style="list-style: none">
+                  <i class="fa fa-check-square-o" style="color: green"></i>
+                  Get recognized for your academic hard work and achievements
+                </li>
+              </ul>
+
+            </div>
+
+            <div class="col-xs-12 col-sm-12 col-md-8 col-lg-10" style="float: none; margin: 0 auto; margin-top: 100px;">
+              <%= form_tag new_subscriber_path do  %>
+                  <div class="input-group">
+                    <input name="email" style="font-size: 2em;" placeholder="Enter your email here for early access ..." type="text" class="form-control h-search-text-field" required/>
+                      <span class="input-group-addon h-search">
+                        <button type="submit" class="btn btn-green">Signup Free</button>
+                      </span>
+                  </div>
+              <% end %>
+            </div>
+            <br>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+</div>
+
+<script>
+    $(document).ready(function(){
+        <% if params[:register] %>
+            swal("Good job!", "You have just subscribed to Looku!", "success")
+        <% end %>
+    })
+
+</script>
+
+<style>
+
+    .get-start-looku-item {
+        list-style: none;
+        padding: 8px;
+    }
+</style>

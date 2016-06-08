@@ -1,0 +1,12 @@
+<%= form_for @purchase do |f| %>
+  <%= f.hidden_field :document_id, value: @document.id %>
+  <%= f.hidden_field :user_id, value: current_user.id %>
+  <%= f.hidden_field :updated_at, value: DateTime.now %>
+  <% if !@is_purchased %>
+    <%= button_tag(type: "submit", class: "remove-border-btn") do %>
+      <div class="btn btn-success" onclick="purcharsed()" id="btn-purchase" >
+        <i class="fa fa-money"></i> PURCHASE
+      </div>
+    <% end %>
+  <% end %>
+<% end %>

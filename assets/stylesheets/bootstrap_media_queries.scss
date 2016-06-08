@@ -1,0 +1,45 @@
+/* extreme small devices (tablets, 768px and up) */
+@media (max-width: 768px) {
+  .ct-header-get-started-item {
+    margin-bottom: 10px;
+  }
+
+  .home-bottom {
+    bottom: 60px !important;
+  }
+
+  h1.home-headings {
+    font-size: 30px !important;
+  }
+
+  h2.home-headings {
+    font-size: 26px !important;
+  }
+
+  .h-search-text-field {
+    font-size: 1em;
+  }
+
+  .btn-search-form {
+    padding: 9px !important;
+  }
+}
+
+/* Small devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+  .h-search-text-field {
+    font-size: 2em;
+  }
+}
+
+/* Medium devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+  h2.home-headings {
+    margin-top: 100px !important;
+  }
+}
+
+/* Large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+
+}

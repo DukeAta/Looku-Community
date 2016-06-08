@@ -1,0 +1,54 @@
+<% if request.path != authenticated_root_path %>
+    <div class="row get-user-documents">
+      <h2 style="margin-top: 50px; text-align: center;"> My Documents </h2>
+      <div style="" class="ct-small-horizontal-divider"></div>
+
+      <!--  Documents listing -->
+      <div class="ct-user-docs-listing">
+        <div class="row">
+          <div class="col-md-10 col-md-offset-1">
+            <% if @documents.empty? %>
+              <div class="col-md-10 col-md-offset-1">
+                <h4 class="text-danger">No documents have been uploaded.</h4>
+                <p>Don’t let your academic efforts go to waste. Share your knowledge and get paid everytime your work is viewed and referenced. Get started here.</p>
+              </div>
+              
+            <% else %>
+              <% @documents.each do |f| %>
+                <div class="row ct-users-doc-row">
+                  <div class="col-md-2">
+                    <%= cl_image_tag(f.file.file.public_id.to_s + '.png', :crop => :fill, :page => f.preview_page, :class => "ct-doc-thumb") %>                               </div>
+                  <div class="col-md-10 ct-users-doc-user-info">
+                    <h3><%= f.title %></h3>
+                    <p>
+                      <%= link_to raw('<i class="icon ion-ios-cloud-download-outline"></i> Download'), download_document_path(f) %>
+                      <a href="#"> </a>
+                      <span class="ct-small-vertical-divider">|</span>
+                      <a href="/documents/<%= f.id %>"><i class="icon ion-eye"></i> Preview </a>
+                      <span class="ct-small-vertical-divider">|</span>
+                      <%= link_to raw('<i class="icon ion-edit"></i> Edit</a>'), edit_document_path(f) %>
+                    </p>
+                  </div>
+                </div>
+              <% end %>
+            <% end %>
+
+          </div>
+        </div>
+      </div>
+      <!--  End document listing -->
+
+    </div>
+<% end %>
+
+<%= render partial: 'shared/uploader_inform_page' %>
+
+<script>
+    $(document).ready(function(){
+        <% if request.path == root_path %>
+//            $('.js--ct-body').hide();
+            $('.js--ct-upload-form').show();
+            $('#onLoadModal').modal('show');
+        <% end %>
+    })
+</script>

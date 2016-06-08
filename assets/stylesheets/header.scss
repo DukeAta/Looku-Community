@@ -1,0 +1,109 @@
+#main-navbar {
+  height: 78px;
+}
+
+.ct-header {
+	margin-bottom: 35px;
+	min-height: 70px;
+	background-color: #fff;
+	box-shadow: 0 0 0 1px rgba(0,0,0,0.05),0 1px 1px rgba(0,0,0,0.05) !important;
+	border-right: none;
+	border-left: none;
+	border-radius: 0;
+    #navbar {
+      padding-right: 0px;
+    }
+}
+
+//devise header
+.dv-header {    
+  width: 100%;
+  margin: 60px auto;
+  text-align: center;
+
+  h2 {
+    font-size: 250%;
+    letter-spacing: 3px;
+    color: #41454A;
+    font-weight: 600;
+  }
+}
+
+.ct-navbar-brand {
+	letter-spacing: 2px;
+  font-weight: 600;
+  color: #41454A !important;
+  font-size: 160%;
+  padding: 20px 0;
+}
+
+.ct-navbar-header {
+  margin-left: 2% !important;		
+}
+
+.ct-nav a {
+  padding: 24px !important;
+  font-weight: 400;
+  font-style: bold;
+  color: #41454A !important;
+  text-transform: uppercase;
+  font-size: 90%;
+  border-left: 1px solid #e5e5e5;
+}
+
+.ct-nav li a span {
+  padding: 5px 0px;
+  border-bottom: 3px solid transparent;
+  transition: color 0.2s, border-bottom 0.2s;
+}
+
+.ct-nav li.active a {
+  background-color: transparent !important;
+}
+
+.ct-nav li.active a span,
+.ct-nav li a:hover span{
+  border-bottom: 3px solid #e67e22;
+  color: #e67e22;
+  padding: 5px 0px;      
+}
+
+.nav-bar-avatar {  
+  width: 42px;
+  height: 42px;
+  margin-top: -15px;
+//  margin-right: -18px;
+  margin-bottom: -10px;
+}
+
+.theme-default #main-navbar .right>.navbar-nav>li {
+  border-left: none !important;
+}
+
+.user-menu img {
+  border-radius: 0px !important;
+  height: 38px !important;
+  width: 38px !important;
+  margin-top: 0px !important;
+}
+.flex-aic, .flex-aic-uploader, .uploader-home-page-how-works{
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 100%;
+    z-index: 4;
+    position: relative;
+  }
+
+.flex-aic {
+  background-image: image-url('bg-img.jpg');
+  height: 640px;
+}
+
+.flex-aic-uploader {
+  background-image: image-url('bg-img-uploader.jpg');
+  height: 640px;
+}
+
+.uploader-how-it-works-img {
+  width: 100%;
+}

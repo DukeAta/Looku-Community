@@ -1,0 +1,22 @@
+<div class="comment">
+  <% if comment.user.image.url.present? %>
+      <%= image_tag comment.user.image.url, alt: "", class: "comment-avatar"%>
+  <% else %>
+      <img src="http://bountytechgaming.com/uploads/avatars/avatar_4202.jpg" alt="" class="comment-avatar">
+  <% end %>
+  <div class="comment-body">
+    <div class="comment-by">
+      <%= link_to comment.user.name, user_path(comment.user)%>
+      <%= t "text.comment_one" %>
+      <%= link_to comment.document.title, document_path(comment.document) %>
+    </div>
+    <div class="comment-text">
+      <%= comment.content %>
+    </div>
+    <div class="comment-actions">
+      <span class="pull-right"><%= time_ago_in_words comment.updated_at%>
+        <%= t "text.ago" %>
+      </span>
+    </div>
+  </div> <!-- / .comment-body -->
+</div> <!-- / .comment -->

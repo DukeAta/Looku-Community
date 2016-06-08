@@ -1,0 +1,29 @@
+<div class="large-vertical-margin"></div>
+
+<div class="col-md-8 col-md-offset-2">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4>Register Your Email</h4>
+    </div>
+
+    <div class="panel-body" style="padding: 50px">
+      <%= form_tag new_subscriber_path do  %>
+          <div class="form-group col-md-8">
+            <%= text_field_tag :email, '',
+                               { placeholder: 'Enter your email address for early access',
+                                 class: "form-control", autofocus: true, required: true } %>
+          </div>
+          <div class="col-md-4 pull-right">
+            <%= submit_tag 'Register', class: "btn btn-success btn-block" %>
+          </div>
+      <% end %>
+      <br>
+    </div>
+  </div>
+</div>
+
+<style>
+    .large-vertical-margin {
+        height: 100px;
+    }
+</style>

@@ -1,0 +1,60 @@
+
+<% if user_signed_in? %>
+    <!-- modal onload -->
+    <div class="modal fade" id="onLoadModal" tabindex="-1">
+      <div class="modal-dialog" role="document">
+        <div class="modal-header">
+          <a class="close" data-dismiss="modal">×</a>
+          <h3>Hi <%= current_user.name %>, Welcome to Looku</h3>
+        </div>
+        <div class="modal-body">
+          <p style="font-weight: normal; color: #333">
+            We are nearly there and are glad to have you onboard as we complete the final Alpha stages of our intuitive Looku platform.
+            <br>
+            <br>
+            Once completed, students and graduates can get paid for sharing their academic knowledge and existing students everywhere can improve their grades by learning directly from others who have completed their exact or similar module or course.
+            <br>
+            <br>
+            While we work hard on final developments …….
+
+            <br>
+            <br>
+            <b>Start Earning Now!<i class="fa fa-smile-o" style="margin-left: 6px;"></i></b>
+            <br>
+            <br>
+            Click the <%= link_to "“Upload”", upload_document_path %> tab and start recycling your knowledge. No point in letting all your academic hard work and knowledge go to waste. Recycle it and get paid every time it is viewed anywhere!
+            <br>
+            <br>
+            For your support, you earn credits, so you keep more of what you earn!
+            <br>
+            <br>
+            <b>Nothing to Upload?</b>
+            <br>
+            <br>
+            Click the <%= link_to "Invite Friends", user_invite_friends_path %> tab and invite your friends to join Looku.
+            <br>
+            <br>
+            For your support, you earn credits for each friend that joins Looku from your invite which means you can access recycled work for longer, for free!
+            “Invite Friends” tab
+            <br>
+            <br>
+
+            <div class="text-center" style="font-weight: bold; color: #333">
+              Knowledge is really is power ……. don’t waste it,
+              <br>RECYCLE IT!
+            </div>
+
+            <br>
+              <p style="color: #333; font-weight: normal">
+                Thanks,<br>
+                The Looku Team
+              </p>
+          </p>
+        </div>
+        <div class="modal-footer">
+          <a href="#" class="btn" data-dismiss="modal">Cancel</a>
+        </div>
+      </div>
+    </div>
+
+<% end %>

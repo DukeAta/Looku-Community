@@ -1,0 +1,54 @@
+<% if params[:confirmation] %>
+    <div class="alert alert-success alert-block">
+      <button type="button" class="close" data-dismiss="alert">x</button>
+      Thank you. Your email has been verified. Please sign in to access Looku.
+    </div>
+<% end %>
+
+<div class="panel panel-default">
+  <div class="panel-heading">
+     <h4><%= t('text.sign_in_with_your_account', :default => "Sign in") %></h4>
+  </div>
+
+  <div class="panel-body">
+    <% if devise_mapping.omniauthable? %>
+      <% resource_class.omniauth_providers.each do |provider| %>
+        <div class="col-xs-6 social">
+          <%= link_to omniauth_authorize_path(resource_name, provider),
+            class: "fa btn btn-#{provider.to_s} btn-block btn-lg btn-social" do %>
+            <span class=<%="fa-#{provider.to_s}"%>></span>
+            <%= t('.sign_in_with_provider',
+            :provider => provider.to_s.titleize,
+            :default => "#{provider.to_s.titleize}") %>
+          <% end %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+
+  <span class="col-xs-5"><hr></span><span class="col-xs-2" style="text-align: center; font-size: 0.8em"><i>or</i></span><span class="col-xs-5"><hr></span>
+
+  <div class="panel-body">
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: { role: "form" }) do |f| %>
+      <div class="form-group">
+        <%= f.label :email %>
+        <%= f.email_field :email, autofocus: true, class: "form-control" %>
+      </div>
+      <div class="form-group">
+        <%= f.label :password %>
+        <%= f.password_field :password, autocomplete: "off", class: "form-control" %>
+      </div>
+      <% if devise_mapping.rememberable? %>
+        <div class="checkbox">
+          <label>
+            <%= f.check_box :remember_me %>
+            <%= f.label :remember_me %>
+          </label>
+        </div>
+        <% end %>
+      <%= f.submit  t('.sign_in', :default => "Sign in"), class: "btn btn-success btn-block" %>
+    <% end %>
+    <br>
+    <%= render "devise/shared/links" %>
+  </div>
+</div>

@@ -1,0 +1,114 @@
+
+
+<!-- 2. $MAIN_NAVIGATION ===========================================================================
+
+    Main navigation
+-->
+<div class="main-navbar-fixed">
+  <div id="main-navbar" class="navbar navbar-inverse" role="navigation">
+    <!-- Main menu toggle -->
+    <!--<button type="button" id="main-menu-toggle"  style="background-color: #f4b04f !important"><i class="navbar-icon fa fa-bars"></i><span class="hide-menu-text">HIDE MENU</span></button>-->
+
+    <div class="navbar-inner">
+      <!-- Main navbar header -->
+      <div class="navbar-header">
+
+        <!-- Logo -->
+        <%= link_to image_tag('logo.png', :id => 'logo'), root_path %>
+
+
+        <!-- Main navbar toggle -->
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                data-target="#main-navbar-collapse"><i class="navbar-icon fa fa-bars"></i></button>
+
+      </div> <!-- / .navbar-header -->
+
+      <div id="main-navbar-collapse" class="collapse navbar-collapse main-navbar-collapse">
+        <div>
+          <div class="right clearfix">
+            <ul class="nav navbar-nav pull-right right-navbar-nav" style="margin-top: 6px;">
+
+              <% if current_user %>
+                <ul class="nav navbar-nav">
+
+                  <li class="<%= params[:controller] == 'documents' && params[:action] == 'index' ? 'active' : '' %>">
+                    <%#= link_to raw('<span>DASHBOARD</span>'), root_path %>
+                  </li>
+
+                  <li style="border: 0px; margin-top: -3px;"><button class="btn btn-default ct-btn-upload btn-warning" id="js--btn-upload" style="background-color: #ff7300 !important;"><i class="icon ion-ios-cloud-upload ct-small-icon"></i>Upload</button></li>
+                </ul>
+              <% end %>
+
+              <!--li class="<%= params[:controller] == 'documents' && params[:action] == 'index' ? 'active' : '' %>"><a href="/">Get Started</a></li-->
+              <% if current_user %>
+                  <!--
+                <li class="<%= params[:controller] == 'purchases' && params[:action] == 'index' ? 'active' : '' %>">
+                  <%= link_to 'PURCHASES', purchases_index_path %>
+                </li>
+                -->
+
+                <li class="<%= params[:controller] == 'users' && params[:action] == 'get_documents' ? 'active' : '' %>"><%= link_to raw('<span>MY DOCUMENTS</span>'), user_documents_path(current_user) %></li>
+
+                <!--<li>-->
+                <!--<form class="navbar-form pull-left">-->
+                <!--<input type="text" class="form-control" placeholder="Search">-->
+                <!--</form>-->
+                <!--</li>-->
+
+                <li class="dropdown">
+                  <div class="dropdown-toggle user-menu" data-toggle="dropdown">
+                    <% if current_user.image.url.present? %>
+                      <%= image_tag(current_user.image.url) %>
+                    <% else %>
+                      <img src="http://bountytechgaming.com/uploads/avatars/avatar_4202.jpg" alt="" class="">
+                    <% end -%>
+                  </div>
+                  <ul class="dropdown-menu">
+                    <li style="font-weight: 300; margin-left: 18px; font-size: 120%"><%= current_user.first_name + ' ' + current_user.last_name %></li>
+                    <li>
+                    </li>
+                    <li class="divider"></li>
+                    <li><%= link_to 'Update paypal account', edit_user_path(current_user) %></li>
+                    <li><%= link_to 'Profile', edit_user_registration_path(current_user) %></li>
+                    <li><%= link_to(raw('<i class="dropdown-icon fa fa-power-off"></i>&nbsp;&nbsp;Log Out'), destroy_user_session_path, :method => :delete) %></li>
+                  </ul>
+                </li>
+              <% else %>
+               <li class="ct-header-item <%= "active" if params[:controller] == "subscribers" && params[:action] == "home" %>"><%= link_to 'See and Learn', subscriber_home_path %></li>
+               
+               <li class="ct-header-item <%= "active" if params[:controller] == "documents" && params[:action] == "index" %>"><%= link_to 'Share and Earn', root_path %></li>
+                
+                <li class="ct-header-item">
+                  <%= link_to "Invite Friends", "#", 'data-toggle' => "modal", 'data-target' => "#friend_inviter" %>
+                  <%#= link_to 'Invite Friends', root_path %>
+                </li>
+
+                <!--<li class="ct-header-item ct-header-get-started-item">-->
+
+                <% if params[:controller] != 'subscribers' %>
+                  <li class="ct-header-item <%= "active" if params[:controller] == "devise/sessions" && params[:action] == "new" %>">
+                    <%= link_to 'Sign in', new_user_session_path %>
+                  </li>
+
+                  <li class="ct-header-item <%= "active" if params[:controller] == "registrations" && params[:action] == "new" %>">
+                    <%= link_to 'Sign up', new_user_registration_path %>
+                  </li>
+                <% else %>
+                      <li class="ct-header-item">
+                        <%= link_to 'Subscribe', subscriber_register_path %>
+                      </li>
+                <% end %>
+              <% end %>
+            </ul> <!-- / .navbar-nav -->
+          </div> <!-- / .right -->
+        </div>
+      </div> <!-- / #main-navbar-collapse -->
+    </div> <!-- / .navbar-inner -->
+  </div> <!-- / #main-navbar -->
+  <!-- /2. $END_MAIN_NAVIGATION -->
+</div>
+<% if current_user.blank? and request.path == root_path %>
+    <%= render partial: '/shared/uploader_header' %>
+<% elsif request.path == subscriber_home_path %>
+    <%= render partial: '/shared/subscriber_header' %>
+<% end %>

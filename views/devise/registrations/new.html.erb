@@ -1,0 +1,83 @@
+<%= bootstrap_devise_error_messages! %>
+
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <!--h4><%= t('.sign_up', :default => "Create your account") %></h4-->
+    <h4>Get started on Looku</h4>
+    <!-- <p>
+      New to Looku? Let’s get you started so you can access our library of student essays, assignments, projects, dissertations and more.
+    </p> -->
+  </div>
+  <div class="panel-body">
+    <% if devise_mapping.omniauthable? %>
+      <% resource_class.omniauth_providers.each do |provider| %>
+        <div class="col-xs-6 social">
+          <%= link_to omniauth_authorize_path(resource_name, provider),
+            class: "fa btn btn-#{provider.to_s} btn-block btn-lg btn-social" do %>
+            <span class=<%="fa-#{provider.to_s}"%>></span>
+            <%= t('.sign_in_with_provider',
+            :provider => provider.to_s.titleize,
+            :default => "#{provider.to_s.titleize}") %>
+          <% end %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+
+  <span class="col-xs-5"><hr></span><span class="col-xs-2" style="text-align: center; font-size: 0.8em"><i>or</i></span><span class="col-xs-5"><hr></span>
+  <div class="panel-body">
+    <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), html: { role: "form" }) do |f| %>
+      <div class="form-group">
+        <%= f.label :email %>
+        <% if params[:email].present? %>
+          <%= f.email_field :email, autofocus: true, class: "form-control", :value => params[:email], required: true %>
+        <% else %>
+          <%= f.email_field :email, autofocus: true, class: "form-control", required: true %>
+        <% end %>
+      </div>
+      <div class="form-group">
+        <%= f.label :password %><br />
+        <%= f.password_field :password, class: "form-control", required: true %>
+      </div>
+      <div class="form-group">
+        <%= f.label :password_confirmation %>
+        <%= f.password_field :password_confirmation, class: "form-control", required: true %>
+      </div>
+
+        <div class="form-group">
+          <%= f.label :title %>
+          <%= f.select :title, [['Mr', 'mr'], ['Ms', 'ms'], ['Mrs', 'mrs']], class: "form-control", required: true, style: 'background-color: #ffffff' %>
+        </div>
+
+      <div class="form-group">
+        <%= f.label :first_name %>
+        <%= f.text_field :first_name, class: "form-control", required: true %>
+      </div>
+      <div class="form-group">
+        <%= f.label :last_name %>
+        <%= f.text_field :last_name, class: "form-control", required: true %>
+      </div>
+      <div class="form-group">
+        <%= f.label :user_category %>
+        <%= f.select :user_category, [["Student", 1], ["Non Student", 2]], class: 'form-control' %>
+      </div>
+      <div class="form-group">
+        <input type="checkbox" /> 
+        <span>Send me information from Looku and my Looku account activity only!</span>
+      </div>
+
+        <%#= f.submit t('.sign_up', :default => "Get started"), class: "btn btn-primary" %>
+      <%= f.submit "Sign up", class: "btn btn-primary" %>
+      <div class="form-group">
+        <p class="notice-sign-up">By ‘Getting Started’ you agree to our privacy policy and terms of use</p>
+      </div>
+    <% end %>
+  </div>
+</div>
+<%= render "devise/shared/links" %>
+
+<style>
+  select {
+      background-color: #ffffff;
+  }
+</style>

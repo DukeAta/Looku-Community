@@ -1,0 +1,176 @@
+<%= render "shared/message" %>
+<% user = @document.user %>
+
+<div class="row" style="background-color: #fff; margin-top:40px;">
+  <div class="col-md-10 col-md-offset-1">
+    <div class="doc-title">
+      <div class="ct-show-title col-sm-9">
+        <%= @document.title %>
+        <span style="font-size: small">
+          <% if @document.is_verified %>
+            <i class="fa fa-check bg-success">Verified</i>
+          <% else %>
+            <i class="fa fa-exclamation-triangle text-warning"></i>Not verified yet
+          <% end %>
+        </span>
+      </div>
+
+      <div class="col-sm-3">
+        <div class="pull-right">
+          <%= render "purchases/form" %>
+        </div>
+      </div>
+      <div style="clear:both" ></div>
+
+      <div class="col-sm-12">
+        <div class="">
+          <%= rating_for @document, "document", disable_after_rate: false, enable_half: true %>
+          <% if @rating %>
+            <span class="you-rated">You rated</span>
+          <% end %>
+        </div>
+      </div>
+    </div>
+    <div class="clear-both"></div>
+
+    <div class="ct-view-doc-info-bar">
+      <div class="row">
+        <% if @current_purchased && @current_purchased.is_expired? %>
+          <div class="alert alert-error">
+            Your document was expired
+            <a class="close" data-dismiss="alert">&#215</a>
+          </div>
+        <% end %>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <div class="row">
+            <div class="pull-left">
+              <% if user.image.url.present? %>
+                  <%= image_tag(user.image.url) %>
+              <% else %>
+                  <img src="http://bountytechgaming.com/uploads/avatars/avatar_4202.jpg" alt="" class="">
+              <% end -%>
+            </div>
+
+            <div class="pull-left doc-info">
+              <span class="doc-info-title">
+                UPLOADED BY</span>
+              <br>
+              <span class="doc-info-value"><%= user.name %></span>
+            </div>
+
+            <div class="pull-left doc-info">
+              <span class="doc-info-title">VOTE</span>
+              <br>
+              <% unless @voted%>
+                <%= link_to votes_path(vote: {user_id: current_user,
+                  document_id: @document}), method: :post, remote: true do %>
+                  <span class="doc-info-value"><i class="fa fa-heart" id="voted"></i></span>
+                <% end %>
+              <% else %>
+                <span class="doc-info-value"><i class="fa fa-heart voted"></i>
+                </span>
+              <% end %>
+            </div>
+
+            <div class="pull-left doc-info">
+              <span class="doc-info-title">TOTAL PAGES</span>
+              <br>
+              <span class="doc-info-value"><%= @document.total_pages %></span>
+            </div>
+
+            <div class="pull-left doc-info">
+              <span class="doc-info-title">PRICE</span>
+              <br>
+              <span class="doc-info-value"><%= @document.price %></span>
+            </div>
+
+            <div class="pull-left doc-info">
+              <span class="doc-info-title">Resource</span>
+              <br>
+              <span class="doc-info-value"><%= @document.resource_type ? @document.resource_type : t("text.has_not_resource") %></span>
+            </div>
+
+            <div class="pull-left doc-info" style="border-right: none;">
+              <span class="doc-info-title">CATEGORY</span>
+              <br>
+              <span class="doc-info-value"><%= @document.category %></span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+    <div class="view">
+      <% if @is_purchased %>
+        <iframe name="documentFrame" src="<%= pdfjs.minimal_path(file: "#{@document.file_url}")%>" style="border: none;"></iframe>
+      <% else %>
+        <%= cl_image_tag(@document.file.file.public_id.to_s + '.png', :crop => :fill, :page => @document.preview_page, style: 'width: 100%') %>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+
+
+<div style='height:30px'></div>
+
+<div class="row">
+  <div class="container">
+  <div class="row">
+    <div class="col-md-10 col-md-offset-1">
+
+      <div class="panel widget-comments">
+        <div class="panel-heading">
+          <span class="panel-title"><i class="panel-title-icon fa fa-comment-o"></i>Last comments</span>
+        </div> <!-- / .panel-heading -->
+
+        <div class="panel-body" id="comments-list">
+          <%= render @comments %>
+        </div> <!-- / .panel-body -->
+
+        <%= render "comments/comment_form" %>
+
+      </div>
+    </div>
+  </div>
+  </div>
+</div>
+</div>
+<script type="text/javascript">
+  a = $('a.media').media({width: 700, height:400});
+  $("iframe").css("width", '100%')
+  $('#pdf').load(function(){
+    console.log($('#pdf').contents())
+  });
+
+  var downloadDocument = function(){
+      <% if @document.price.to_i > 0 && @document.user_id != current_user.id && !@is_purchased %>
+          swal({
+              title: "Are you sure?",
+    //          type: "warning",
+              showCancelButton: true,
+              confirmButtonColor: "#DD6B55",
+              confirmButtonText: "Yes, download it!",
+              closeOnConfirm: true,
+              html: false
+          }, function(){
+              window.location.href = "<%= download_document_path(@document) %>";
+          });
+      <% else %>
+          window.location.href = "<%= download_document_path(@document) %>";
+      <% end %>
+  };
+
+  $('iframe').load( function() {
+//  document.ready(function(){
+      $('iframe').contents().find("head")
+              .append("<style type='text/css'> .pdfViewer .page{border-image:none !important; border: 1px solid #d3d3d3 !important; margin-top: 20px !important; box-shadow: 0 4px 2px -3px gray !important;}  </style>");
+//  });
+
+  });
+
+  $('iframe').css('height', '<%= PDF::Reader.new(open(@document.file.url)).page_count * 1190 %>' + 'px');
+</script>

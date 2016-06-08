@@ -1,0 +1,34 @@
+<div class="row get-user-documents">
+  <h2 style="margin-top: 50px; text-align: center;"> Purchase History </h2>
+
+  <div style="" class="ct-small-horizontal-divider"></div>
+</div>
+<div class="row page-min-height">
+  <!--  Documents listing -->
+  <div class="ct-user-docs-listing">
+    <div class="row">
+      <div class="col-md-10 col-md-offset-1">
+        <% @documents.each do |f| %>
+            <div class="row ct-users-doc-row">
+              <div class="col-md-2">
+                <%= cl_image_tag(f.file.file.public_id.to_s + '.png', :crop => :fill, :page => f.preview_page, :class => "ct-doc-thumb") %>                               </div>
+              <div class="col-md-10 ct-users-doc-user-info">
+                <h3><%= f.title %></h3>
+                <p>
+                  <% if false %>
+                  <%= link_to raw('<i class="icon ion-ios-cloud-download-outline"></i> Download'), download_document_path(f) %>
+                  <a href="#"> </a>
+                  <span class="ct-small-vertical-divider">|</span>
+                  <% end %>
+                  <a href="/documents/<%= f.id %>"><i class="icon ion-eye"></i> Preview </a>
+                </p>
+              </div>
+            </div>
+
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <!--  End document listing -->
+
+</div>

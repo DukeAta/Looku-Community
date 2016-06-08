@@ -1,0 +1,163 @@
+<footer class="main-footer clearfix ">
+  <div class="footer-container">
+    <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 description">
+      <a href="/" class="pph-logo"></a>
+      <!--div class="description-text">
+        A collection of the best works by the best students   
+      </div-->
+      <div class="copyright">
+        Looku Copyright <%= Time.now.year %>
+        <br/>
+        All Rights Reserved
+      </div>
+      <!--div class="helper-links clearfix">
+        A product of Simply Distinctions Ltd.
+      </div-->
+    </div>
+    <div class="col-xs-12 col-sm-9 col-md-9 col-lg-9 links clearfix">
+      <ul class="footer-nav list list-inline col-xs-12 col-sm-9 col-md-9 col-lg-9">
+        <li>
+          <%= link_to "Invite Friends", "#", 'data-toggle' => "modal", 'data-target' => "#friend_inviter" %>
+        </li>
+        <li>
+          <%= link_to "About", about_us_path %>
+        </li>
+        <li>
+          <%= link_to "Terms", tos_path %>
+        </li>
+        <li>
+          <%= link_to "Privacy", privacy_path %>
+        </li>  
+        <li>
+          <%= link_to "Contact", contact_us_path %>
+        </li>
+      </ul>
+
+      <!-- SOCIAL MEDIA LINKS
+      <div class="pull-right col-xs-12 col-sm-3 col-md-3 col-lg-3 socials">
+        <%= link_to "Connect with us", "#" %>
+        <div class="social">
+          <ul class="nav nav-pills">
+            <div>
+              <%= social_share_button_tag("Wellcome to Looku",
+                url: request.original_url, :popup => "true") %>
+            </div>
+          </ul>
+        </div>
+      </div>
+      -->
+
+      <% if false %>
+        <div class="col-xs-12 col-sm-4">
+          <h4>Company</h4>
+          <ul class="footer-nav">
+            <li>
+              <%= link_to "About Us", about_us_path %>
+            </li>
+          </ul>
+          <hr class="visible-xs">
+        </div>
+        <div class="col-xs-12 col-sm-4">
+          <h4>Help</h4>
+          <ul class="footer-nav">
+            <li><a href="<%= how_it_works_path %>">How it Works</a></li>
+            <li><a href="<%= contact_us_path %>">Contact Us</a></li>
+          </ul>
+          <hr class="visible-xs">
+        </div>
+        <div class="col-xs-12 col-sm-4">
+          <h4>Terms</h4>
+          <ul class="footer-nav">
+            <li><a target="_blank" href="<%= tos_path %>">terms and conditions</a></li>
+          </ul>
+        </div>
+      <% end %>
+    </div>
+    <% if false %>
+      <div class="col-xs-12 hidden-md hidden-lg copyright-mobile">
+        © 2015 PeoplePerHour Inc.    <div class="helper-links right clearfix">
+          <ul>
+            <li><a href="/static/terms">Terms</a></li>
+            <li><a href="/privacy">Privacy</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="col-sm-4 col-lg-3 connect visible-lg">
+        <h4>Connect with us</h4>
+        <% if false %>
+          <div class="email-input">
+            <div style='font-size:14px;'>Get special offers up to 60% off!</div>
+            <form class="form" id="newsletter-subscription-form" action="/hourlie/subscribeNewsletter" method="post" style='width:65%'>
+              <div style="display:none"><input type="hidden" value="4a624ed9ebf7bf9c9162917e2b624c44820f41ea" name="YII_CSRF_TOKEN"></div>
+              <div class="input-group" id="NewsletterSubscription_email_group">
+                <input placeholder="Type your email.." class="form-control" name="NewsletterSubscription[email]" id="NewsletterSubscription_email" type="email">
+                <span class="input-group-btn">
+                  <button class="btn btn-default submit-btn" type="submit">
+                    <i class="fa fa-caret-right"></i>
+                  </button>
+                </span>
+              </div>
+            </form>
+          </div>
+        <% end %>
+        <div class="social">
+          <ul class="nav nav-pills">
+            <div>
+              <%= social_share_button_tag("Sharing",
+                url: request.original_url, :popup => "true") %>
+            </div>
+          </ul>
+        </div>
+      </div>
+    <% end %>
+  </div>
+  <div class="detect-mobile"></div>
+</footer>
+
+<!-- Modal -->
+<div class="modal fade" id="friend_inviter" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <%= form_tag invite_friends_path, :method => :post do %>
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="myModalLabel">Invite Friends</h4>
+        </div>
+        <div class="modal-body">
+          <h4 class="text-center">Invite your friends to connect with you on Looku!</h4>
+          <br/>
+          <h5 class="text-center">Even better ...</h5>
+          <p>Send invites and see which of your mates are already started on Looku.</p>
+          <p>Follow them and stay up to date with what they’re reading to improve their grades.</p>
+          <br/>
+          <br/>
+          <h4 class="text-center" style="color: #F6C969;">
+            Get started by providing some details below ....
+          </h4>
+
+          <div class="form-group">
+            <%= label_tag :friends_email, "Friends Email <small>( Required )</small>".html_safe %>
+            <%= text_field_tag :friends_email, "", :placeholder => "Multiple email addresses should be comma seperated", :class => "form-control", :required => true, :style => "border-color: #F6C969;" %>
+          </div>
+          <div class="form-group">
+            <%= label_tag :friends_college, "Friends College/University <small>( Optional )</small>".html_safe %>
+            <%= text_field_tag :friends_college, "", :placeholder => "Example - University of Manchester", :class => "form-control" %>
+          </div>
+          <div class="form-group">
+            <%= label_tag :name, "Your Name <small>( Optional )</small>".html_safe %>
+            <%= text_field_tag :name, "", :placeholder => "Example - Sarah Miller", :class => "form-control" %>
+          </div>
+          <div class="form-group">
+            <%= label_tag :college, "Your College/University <small>( Optional )</small>".html_safe %>
+            <%= text_field_tag :college, "", :placeholder => "Example - University of Manchester", :class => "form-control" %>
+          </div>
+
+        </div>
+        <div class="modal-footer" style="text-align: center;">
+          <button type="submit" class="btn btn-primary">Send</button>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

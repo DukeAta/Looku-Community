@@ -1,0 +1,50 @@
+<div class="col-sm-12 update-paypal">
+  <h1>Update paypal account</h1>
+  <hr>
+  <div class="row">
+    <%= form_for @user do |f| %>
+      <div class="col-md-3">
+        <div class="text-center">
+          <div class="avartar">
+            <% if current_user.image.url.present? %>
+              <%= image_tag(current_user.image.url) %>
+            <% else %>
+              <img src="http://bountytechgaming.com/uploads/avatars/avatar_4202.jpg" alt="" class="">
+            <% end -%>
+          </div>
+        </div>
+      </div>
+        <!-- edit form column -->
+      <div class="col-md-9 personal-info">
+        <%= f.hidden_field :email, autofocus: true, class: 'form-control', disabled: true %>
+        <div class="form-group">
+          <%= f.label :paypal_account , class: 'col-lg-3 control-label'%>
+          <span><input type="checkbox" id="email_paypal_account">Use your email</span>
+          <div class="col-lg-8">
+            <%= f.email_field :paypal_account, autofocus: true, class: 'form-control',
+              placeholder: "Your email that is used to login paypal" %>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="col-lg-3 control-label"></label>
+          <div class="col-lg-8">
+            <%= f.submit "Update", :disable_with => 'Save Changesing...', class: 'btn btn-primary' %>
+            <span></span>
+            <%= f.submit "Cancel", :disable_with => 'Canceling...', type: 'reset', class: 'btn btn-default' %>
+          </div>
+        </div>
+    <% end %>
+  </div>
+</div>
+
+<script type="text/javascript">
+  $(document).ready(function(){
+    $("#email_paypal_account").change(function(){
+      if($("#email_paypal_account").is(':checked'))
+        $("#user_paypal_account").val($("#user_email").val()).prop("disabled", "true");
+      else
+        $("#user_paypal_account").val("").removeProp("disabled").focus();
+    });
+  });
+</script>

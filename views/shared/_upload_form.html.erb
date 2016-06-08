@@ -1,0 +1,173 @@
+<div class="row upload-form">
+  <div class="col-md-12">
+    <!--<div id="js--close-upload-form">-->
+      <!--<span class="icon ion-close" id="ct-icon-close"></span>-->
+    <!--</div>-->
+  </div>
+
+  <!-- Upload file box -->
+  <div class="col-md-8 col-md-offset-2" id="ct-upload-content">
+    <%
+       #if current_user.verify?
+    %>
+        <h2> Upload your new document </h2>
+        <p class="col-md-8 col-md-offset-2">Recycle your knowledge and upload your academic work by completing ALL the fields below. Once verified, you get paid every time this document is viewed and referenced.</p>
+        <div class="clearfix"></div>
+        <div class="ct-small-horizontal-divider"></div>
+        <div class="row">
+          <div class="col-md-8 col-md-offset-2">
+            <%= form_for(Document.new, html: { multipart: true, id: 'ct-file-upload-form' }) do |form| %>
+
+              <div class="form-group">
+                <%= form.label :title, class: 'pull-left' %>
+                
+                <%= form.text_field :title, { placeholder: 'Enter your document\'s title', class: 'form-control ct-input-text-field' } %>
+              </div>
+              
+              <div class="form-group">
+                <%= form.label :category, class: 'pull-left' %>
+
+                <div class='col-md-12 btn-default' style="text-align: left; padding: 0px;">
+                  <%= form.select(:category, [['Essay', 'essay'], ['Dissertation', 'dissertation'], ['Assignment', 'assignment'], ['Project', 'project']]) %>
+                </div>
+              </div>
+
+              <div class="clear-both"></div>              
+              <div class="form-group">
+
+                <label class="pull-left">
+                  Set the price for this document
+                </label>
+                <br>
+                <div class="input-group col-md-12">
+                  <%= form.text_field :price, {  placeholder: 'Minimum Amount :£4.99', class: 'form-control' } %>
+                </div>
+              </div>
+              
+              <div class="form-group">
+
+                <label class="pull-left">
+                  What plagiarism software was used to verify this document?
+                </label>
+
+                <br>
+                <%= form.text_field :resource_type, {  placeholder: 'Example: Turnitin', class: 'form-control' } %>
+              </div>
+              
+              <div class="form-group">
+                <label class="pull-left">
+                  Which institution was assessed this document?
+                </label>
+                
+                <%= form.text_field :university, { placeholder: 'Enter your university', class: 'form-control ct-input-text-field' } %>
+              </div>
+
+
+              <div class="form-group">
+                <label class="pull-left">
+                  What country is this institution located?
+                </label>
+
+                <%= form.text_field :country,
+                                    { placeholder: 'Enter your university\'s country',
+                                      class: 'form-control ct-input-text-field' } %>
+              </div>
+
+          
+              <div class="form-group">
+                <label class="pull-left">
+                  What education level is this document?
+                </label>
+
+                <br>
+                <div class='col-md-12 btn-default' style="text-align: left; padding: 0px;">
+                  <%= form.select(:level, ['Undergraduate', 'Postgraduate']) %>
+                </div>
+              </div>
+              
+              <div class="form-group">
+                <label class="pull-left">
+                  What academic year was this document assessed?
+                </label>
+
+                <%= form.number_field :year, class: 'form-control' %>
+              </div>
+
+              <div class="form-group">
+                <label class="pull-left">
+                  What formal grade did you achieve for this document?
+                </label>
+
+                <%= form.text_field :score,
+                                    placeholder: 'This could be a pass, merit, distinction or a percentage score',
+                                    class: 'form-control' %>
+              </div>
+
+                <div class="form-group">
+                  <label class="pull-left">
+                    What is the total word count for this document?
+                  </label>
+
+                  <%= form.number_field :word_count, class: 'form-control' %>
+                </div>
+
+                <label for="ct-document-file" class="ct-file-upload-label">
+                  <i class="fa fa-cloud-upload"></i> Select document
+                </label>
+                <input id="ct-document-file" name="document[file]" type="file"/>
+                <div id="invalid-type-msg">Please upload PDF file only</div>
+                <br>
+                <button type="submit" class="btn ct-small-submit-btn" disabled> Submit document</button>
+            <% end %>
+          </div>
+        </div>
+
+    <%
+       #else
+    %>
+        <!--<div class="row">-->
+          <!--<div class="col-md-8 col-md-offset-2">-->
+            <!--<div class="ct-wait-for-verifying">-->
+              <!--You need to be verified by our Administrator before uploading!-->
+            <!--</div>-->
+          <!--</div>-->
+        <!--</div>-->
+
+    <%
+       #end
+    %>
+  </div>
+</div>
+
+<script>
+    $("input[type=file]").change(function() {
+        $("#invalid-type-msg").hide();
+    });
+
+    $('input[type=file]').fileValidator({
+        onInvalid: function(){
+            $("#invalid-type-msg").show();
+            $('input[type=file]').val('');
+        },
+        type: 'pdf'
+    });
+    
+    $(document).ready(function() {
+      $("#suggested-price").tooltip();
+      $("#document_category").change(function(){
+        $('#suggested-price').delay(800).tooltip( "close");
+        var docCategory = $("#document_category").val();
+        suggestedValue = docCategory == "essay" ? <%= Document::SUGGESTED_ESSAY_PRICE %> : <%= Document::SUGGESTED_DISSERTATION_PRICE %>;
+        $("#suggested-price").attr("title", suggestedValue);
+        $("#suggested-price").tooltip("open");
+      });
+    });
+</script>
+
+<style>
+  select {
+      width: 100%;
+      background-color: #fff;
+      padding: 2px;
+  }
+</style>

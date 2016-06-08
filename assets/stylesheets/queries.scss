@@ -1,0 +1,74 @@
+/* ------------- 
+SMALL PHONEs: 0-480px 
+----------------*/
+@media only screen and (max-width: 480px) {
+    
+}
+
+
+/* ------------- 
+SMALL Tablets: 480px - 768px, as Ipad and tablet
+----------------*/
+@media only screen and (max-width: 767px) {
+  .ct-btn-upload {
+    margin: 12px 0 15px 10px;
+    width: 30%;
+    min-width: 180px;
+  }
+  
+  
+  .ct-document-box {
+    .mask {
+      top: 30%;
+      left: 42%;
+    }
+
+  }
+
+  .ct-view-doc-info-bar {
+    display: table;
+    .pull-left {
+      margin-left: 10%;
+      margin-bottom: 12px;
+    }
+    .doc-info {
+      top: -4px;
+      position: relative;
+      border-top: 1px solid #cdcdcd;
+      border-right: none;
+      padding-top: 12px;
+      width: 80%;
+    }
+  }
+}
+
+
+/* ------------- 
+MEDIUM tablet: 768px - 900px, as Ipad and tablet
+----------------*/
+@media only screen and (max-width: 900px) {
+
+  
+}
+
+
+/* ------------- 
+MEDIUM tablet: 900px - 1024px, as Ipad and tablet
+----------------*/
+@media only screen and (max-width: 1023px) {
+   .ct-doc-thumb {
+    width: 100%;
+    height: auto !important;    
+  }
+}
+
+
+/* ------------- 
+BIG tablet: 1024px - 1200px
+----------------*/
+@media only screen and (max-width: 1200px) {      
+  .ct-doc-thumb {    
+    height: 105px;
+  }
+}
+

@@ -1,0 +1,42 @@
+  <div class="modal-dialog" role="document">
+    <div class="modal-content" style="border: none !important;">
+      <%= form_tag invite_friends_path, :method => :post do %>
+          <div class="modal-header">
+            <h4 class="modal-title" id="myModalLabel">Invite Friends</h4>
+          </div>
+          <div class="modal-body">
+            <h4 class="text-center">Invite your friends to connect with you on Looku!</h4>
+            <br/>
+            <h5 class="text-center">Even better ...</h5>
+            <p>Send invites and see which of your mates are already started on Looku.</p>
+            <p>Follow them and stay up to date with what they’re reading to improve their grades.</p>
+            <br/>
+            <br/>
+            <h4 class="text-center" style="color: #F6C969;">
+              Get started by providing some details below ....
+            </h4>
+
+            <div class="form-group">
+              <%= label_tag :friends_email, "Friends Email <small>( Required )</small>".html_safe %>
+              <%= text_field_tag :friends_email, "", :placeholder => "Multiple email addresses should be comma seperated", :class => "form-control", :required => true, :style => "border-color: #F6C969;" %>
+            </div>
+            <div class="form-group">
+              <%= label_tag :friends_college, "Friends College/University <small>( Optional )</small>".html_safe %>
+              <%= text_field_tag :friends_college, "", :placeholder => "Example - University of Manchester", :class => "form-control" %>
+            </div>
+            <div class="form-group">
+              <%= label_tag :name, "Your Name <small>( Optional )</small>".html_safe %>
+              <%= text_field_tag :name, "", :placeholder => "Example - Sarah Miller", :class => "form-control" %>
+            </div>
+            <div class="form-group">
+              <%= label_tag :college, "Your College/University <small>( Optional )</small>".html_safe %>
+              <%= text_field_tag :college, "", :placeholder => "Example - University of Manchester", :class => "form-control" %>
+            </div>
+
+          </div>
+          <div class="modal-footer" style="text-align: center;">
+            <button type="submit" class="btn btn-primary">Send</button>
+          </div>
+      <% end %>
+    </div>
+  </div>

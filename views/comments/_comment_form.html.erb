@@ -1,0 +1,15 @@
+<div class="panel-footer clearfix">
+  <div class="article-comments-add expanding-input expanding-input-sm expanded">
+    <%= form_for @comment, remote: true do |f| %>
+      <div class="field">
+        <%= f.text_area :content, rows: 5, class: "form-control expanding-input-target",
+          placeholder: t("placer_holder.write_cmt"), required: true %>
+        <%= f.hidden_field :document_id, value: @document.id %>
+        <%= f.hidden_field :user_id, value: current_user.id %>
+      </div>
+      <div class="expanding-input-hidden expanding-input-content" style="margin-top: 10px;">
+        <%= f.submit t("button.post_cmt"), class: "btn btn-sm btn-primary pull-right" %>
+      </div>
+    <% end %>
+  </div>
+</div>

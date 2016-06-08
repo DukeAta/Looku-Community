@@ -1,0 +1,96 @@
+<div class="row">
+
+  <!-- Upload file box -->
+  <div class="col-md-8 col-md-offset-2" id="ct-upload-content">
+    <h2 style="margin-top: 50px;"> <%= @document.title %> </h2>
+
+    <div style="" class="ct-small-horizontal-divider"></div>
+    <div class="row">
+      <div class="col-md-8 col-md-offset-2">
+        <%= form_for(@document, html: { multipart: true, id: 'ct-file-upload-form' }) do |form| %>
+
+            <div class="form-group">
+              <%= form.label :title, class: 'pull-left' %>
+
+              <%= form.text_field :title, { placeholder: 'Enter your document\'s title', class: 'form-control ct-input-text-field' } %>
+            </div>
+
+            <div class="form-group">
+              <%= form.label :preview_page, class: 'pull-left' %>
+              <%= form.number_field :preview_page, { class: 'form-control' } %>
+            </div>
+
+            <div class="form-group">
+              <%= form.label :price, class: 'pull-left' %>
+              <%= form.number_field :price, { class: 'form-control' } %>
+            </div>
+
+            <div class="form-group">
+              <%= form.label :document_type, class: 'pull-left' %>
+              <%= form.text_field :document_type, { placeholder: 'Enter your document\'s type', class: 'form-control ct-input-text-field' } %>
+            </div>
+
+            <div class="form-group">
+              <%= form.label :university, class: 'pull-left' %>
+
+              <%= form.text_field :university, { placeholder: 'Enter your university', class: 'form-control ct-input-text-field' } %>
+            </div>
+
+            <div class="form-group">
+              <%= form.label :institution, class: 'pull-left' %>
+
+              <%= form.text_field :institution, { placeholder: 'Enter your institution', class: 'form-control ct-input-text-field' } %>
+            </div>
+
+            <div class="form-group">
+              <%= form.label :country, class: 'pull-left' %>
+
+              <%= form.text_field :country, { placeholder: 'Enter your university\'s country', class: 'form-control ct-input-text-field' } %>
+            </div>
+
+            <div class="form-group">
+              <%= form.label :level, class: 'pull-left' %>
+
+              <%= form.text_field :level, { placeholder: 'Enter your document\'s level', class: 'form-control ct-input-text-field' } %>
+            </div>
+
+            <div class="form-group">
+              <%= form.label :year, class: 'pull-left' %>
+
+              <%= form.number_field :year, class: 'form-control' %>
+            </div>
+
+            <div class="form-group">
+              <%= form.label :score, class: 'pull-left' %>
+              <%= form.number_field :score, class: 'form-control' %>
+            </div>
+
+            <div class="form-group">
+              <%= form.label :word_count, class: 'pull-left' %>
+              <%= form.number_field :word_count, class: 'form-control' %>
+            </div>
+
+            <div class="form-group">
+              <%= form.label :category, class: 'pull-left' %>
+              <br>
+              <div class='col-md-12 btn-default' style="text-align: left; padding: 0px;">
+                <%= form.select(:category, ['essay', 'dissertation', 'assignment', 'project']) %>
+              </div>
+
+            </div>
+
+            <br>
+            <button type="submit" class="btn btn-default ct-long-flat-btn btn-warning"> Update </button>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+    select {
+        width: 100%;
+        background-color: #fff;
+        padding: 2px;
+    }
+</style>

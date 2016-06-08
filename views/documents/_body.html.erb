@@ -1,0 +1,127 @@
+
+<% if params[:category] %>
+  <div class="row">
+    <div class="col-md-12">
+      <h1 class="ct-doc-list-head-title"><%= params[:category].humanize %>s</h1>
+    </div>
+
+  </div>
+<% end %>
+
+<div class="row  document-listing">
+  <!--  Search -->
+
+  <div class="ct-form-search">
+    <%= form_tag documents_path, method: 'get', id: "search" do %>
+      <div class="input-group no-margin">
+        <span class="input-group-addon" style="border:none;background: #fff"><i class="fa fa-search"></i></span>
+        <%= text_field_tag :search, params[:search], id: "autocomplete-search",
+          placeholder: "Search...", class: "form-control no-padding-hr",
+            style: "border:none;background: #fff; margin-left: -1px; box-shadow: none; -webkit-box-shadow: none;" %>
+        </div>
+      <% end %>
+    </div>
+    <!--  End Search -->
+  </div>
+
+  <div class="row">
+    <% @documents.each do |f| %>
+      <div class="<%= current_user ? "col-sm-4 col-lg-3 documents_index" : " col-sm-4 col-md-4" %> " style="padding: 10px; background-color: #fbfbfb; border: 1px solid #ebebeb; margin:10px; width: 30.33%; border-radius: 4px;">
+        <div class="ct-document-box">
+          <div class="ct-img-bg">
+            <div class="col-md-12 view">
+              <!--          See this: http://cloudinary.com/blog/uploading_converting_and_generating_thumbnails_for_pdf_documents-->
+              <%= cl_image_tag(f.file.file.public_id.to_s + '.png', :crop => :fill, :page => f.preview_page, :class => "ct-document-preview") %>
+              <%= link_to document_path(f), method: :get do %>
+                <div class="mask btn btn-success">
+                  Preview
+                </div>
+              <% end %>
+            </div>
+          </div>
+
+          <div class="doc-thumb-info">
+            <div class="col-md-12 doc-title-thumb">
+              <%= f.title %>
+            </div>
+            <div>
+              <div class="doc-publisher">
+                <span class="">By <%= f.user.name %></span>
+              </div>
+              <div class="pull-right doc-price">
+                <i class="fa fa-gbp"></i><strong><span> <%= f.price %></span></strong>
+              </div>
+              <div class="clear-both"></div>
+              <div class="disable" disabled="disabled">
+                <%= rating_for f, "document", disable: false, enable_half: true %>
+                <span class="pull-right you-rated">
+                  <% if rating_doc f %>
+                    you rated
+                  <% else %>
+                    rate it
+                  <% end %>
+                </span>
+              </div>
+              <div class="clear-both"></div>
+            </div>
+
+            <div class="doc-resource pull-left">
+              <span class="">Resource: <b><%= f.resource_type %></b></span>
+            </div>
+
+            <div class="doc-resource pull-right">
+              Verified:
+              <span class="fa">
+                <i class=<%= f.is_verified ? "fa-check" : "fa-exclamation-triangle" %>></i>
+              </span>
+            </div>
+
+            <div class="clear-both"></div>
+            <hr class="doc-hr">
+            <div class="doc-social">
+              <div class="view col-sm-4">
+                <i class="fa fa-eye"></i> 19k
+              </div>
+              <div class="view col-sm-4">
+                <i class="fa fa-share-alt"></i> 10
+              </div>
+              <div class="view col-sm-4">
+                <% if Vote.find_by(user_id: current_user, document_id: f) %>
+                  <i class="fa fa-heart hover-voted"></i>
+                <% else %>
+                  <i class="fa fa-heart"></i>
+                <% end %>
+              </div>
+              <div class="clear-both"></div>
+            </div>
+            <div class="doc-footer"></div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+
+    <% if current_user.blank? and request.path == root_path %>
+      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center">
+        <%= link_to "EXPLORE PROJECTS", new_user_session_path, :class => "btn btn-primary col-xs-12 col-sm-6 col-md-4 col-lg-4 btn-lg", :style => "float: none; margin: 20px auto;background: #e67e22;border-color: rgba(230, 122, 34, 0.68);" %>
+      </div>
+    <% end %>
+
+  </div>
+
+  <% if request.path != root_path or current_user.present? %>
+
+    <%= paginate @documents %>
+
+  <% end %>
+
+  <!--<div class="pager">
+          <div class="pagination clearfix">
+              <ul data-responsive="1" role="navigation" id="hourlies-listing-pager" class="yiiPager">
+                  <li class="hidden-xs"><span class="inactive"><i class="fa fa-angle-left"></i></span></li>
+                  <li class=""><a data-page="1" class=" selected" title="go to page 1" href="#">1</a></li>
+                  <li class="hidden-xs"><a data-page="2" class="" title="go to page 2" href="#">2</a></li>
+                  <li class="hidden-xs"><a data-page="3" class="" title="go to page 3" href="#">3</a></li>
+              </ul>
+          </div>
+     </div>-->
+  <!--  End document listing -->

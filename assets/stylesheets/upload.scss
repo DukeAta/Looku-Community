@@ -1,0 +1,81 @@
+.ct-upload-form {
+  display: none;
+}
+
+#js--close-upload-form {
+  font-size: 200%;
+  font-weight: 400;
+  margin: 0px 2% 0px 0;
+}
+
+#ct-icon-close {
+  cursor: pointer;
+  transition: color 0.2s;
+  &:hover{
+    color: #e67e22;
+  }
+}
+
+#ct-upload-content {
+  text-align: center;
+}
+
+#ct-document-file {
+  display: none;
+}
+
+.ct-file-upload-label, .ct-wait-for-verifying {
+  width: 100%;
+  padding: 35px;
+  cursor: pointer;
+  border: 2px dashed #DADADA;
+  font-size: 120%;
+//  -webkit-transition: background-color 0.3s, border-color 0.3s, color 0.3s;
+//  -moz-transition: background-color 0.3s, border-color 0.3s, color 0.3s;
+//  -ms-transition: background-color 0.3s, border-color 0.3s, color 0.3s;
+//  -o-transition: background-color 0.3s, border-color 0.3s, color 0.3s;
+//  transition: background-color 0.3s, border-color 0.3s, color 0.3s;
+//  &:hover,
+//  &:active,
+//  &:focus {
+//    background-color: #e67e22;
+//    color: #ffffff;
+//    border-color: #e67e22;
+//  }
+}
+
+.ct-small-submit-btn {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background-color: #e67e22;
+  color: #ffffff;
+  &:hover,
+  &:active,
+  &:focus {
+    background-color: #e67e22 !important;
+    color: #ffffff;
+  }
+
+  width: 100%;
+
+  font-size: 100%;
+  margin-top: 35px;
+}
+
+.ct-input-text-field {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.js--ct-upload-form {
+  display: none;
+}
+
+.ct-wait-for-verifying {
+  color: #B00100;
+}
+
+#invalid-type-msg{
+  color: #B00100;
+  display: none;
+}

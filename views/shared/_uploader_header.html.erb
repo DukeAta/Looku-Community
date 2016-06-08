@@ -1,0 +1,459 @@
+<section id="home" class="flex-aic-uploader">
+  <div class="home-container text-center container-fluid">
+    <div class="home-title liquid-slider" id="slider-home">
+      <div class="col-xs-12">
+        <h3 class="home-title-h1 text-center color-white" style="font-size: 40px !important;">
+          Get Paid. Gain Recognition. Be Credible.
+          <!--Monetize your knowledge, improve <br>-->
+          <!--yourama    employment prospects and get <br>-->
+          <!--your academic work referenced by <br>-->
+          <!--students everywhere!-->
+        </h3>
+
+        <h4 class="color-white" style="font-size: 24px; line-height: 1.5; color: whitesmoke">
+          Monetize your knowledge, improve your employment prospects <br>
+          and get
+          your academic work referenced by
+          students everywhere!
+        </h4>
+      </div>
+    </div>
+  </div>
+  <div class="home-bottom">
+    <div class="container text-center">
+      <div class="col-xs-12 col-sm-12 col-md-8 col-lg-10" style="float: none; margin: 0 auto;">
+        <%= form_tag(new_registration_path(:user), :method => :get) do %>
+            <div class="input-group">
+              <input name="email" placeholder="Enter your email here for early access ..." type="text" class="form-control h-search-text-field"/>
+                <span class="input-group-addon h-search">
+                  <button type="submit" class="btn btn-green btn-search-form">Signup Free</button>
+                </span>
+            </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- How Looku works -->
+
+<section class="h-h-l-w" style="background: #FFFFFF; padding: 0;">
+  <div class="container-fluid" style="padding: 0;">
+    <!--<div class="small-vertical-margin"></div>-->
+    <!--<h1 class="heading text-center home-headings"-->
+        <!--style="padding: 20px 0;">-->
+      <!--How Looku Works.-->
+    <!--</h1>-->
+    <!--<div class="small-vertical-margin"></div>-->
+    <div style="width: 100%; float: left;margin: auto;">
+      <div class="text-center" style="float: none;margin: 0px auto;">
+        <%= image_tag 'uploader-how-works.png', class: 'img-responsive uploader-how-it-works-img', style: 'margin: auto' %>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!--End how look works -->
+<section class="h-h-l-w" style="background: #FFFFFF; padding: 0;">
+  <div class="" style="padding-top: 0px;">
+    <h1 class="heading text-center home-headings"
+        style="padding: 30px 0; margin: 0px auto; margin-bottom: 0px !important;">
+      <br>
+      The best way to understand Looku is to try it.
+      <!--<div class="small-vertical-margin"></div>-->
+
+      <p class="text-center">
+        <button onclick="window.location.href='<%= new_user_session_path %>'" class="btn btn-green "
+                style="float: none; margin: 20px auto 20px auto">
+          Get Started
+        </button>
+      </p>
+    </h1>
+
+  </div>
+
+
+</section>
+
+<!-- Why join Looku -->
+<section class="h-h-l-w" style="background: #FFFFFF; padding: 0;">
+  <div class="container-fluid" style="padding: 0;">
+    <h1 class="heading text-center home-headings"
+        style="padding: 40px 0 20px 0; background-color: #F9F9F9; margin: 0px auto; margin-bottom: 0px !important; color: #666666;">
+      Why join Looku?
+    </h1>
+
+    <div class="grey-bg" style="width: 100%; float: left;margin: 0; color: #666 !important;">
+      <div class="col-xs-12 col-sm-12 col-md-10 col-lg-10" style="float: none;margin: 5px auto;
+              border-bottom: 1px solid #d3d3d3; display: flex; padding-bottom: 30px">
+        <div class="row">
+          <div class="col-md-6" style="min-height: 215px;">
+            <div class="box-heading" style="margin: 10px 0;padding: 5px 5px;vertical-align: middle;">
+              <h2 class="home-headings" style="margin: 0;">You’ve studied too hard not to.</h2>
+            </div>
+            <div class="box-content" style="padding: 5px 5px;">
+              <p style="text-align: justify">
+                Just think about what you’ve done with past academic
+                essays, coursework, assignments and dissertations since
+                they were submitted, marked and graded. Have you looked at them
+                again? All your hard work never to be seen or used again? Why not
+                let students reference your work and get paid for your efforts?
+              </p>
+
+              <p class="text-center">
+                <button onclick="window.location.href='<%= new_user_session_path %>'" class="btn btn-green " style="float: none; margin: 10px auto;">
+                  Get Started
+                </button>
+              </p>
+            </div>
+          </div>
+          <div class="col-md-6" style="min-height: 215px;">
+            <p class="text-center box-img" style="margin: 10px 0;">
+              <%= image_tag "learn-and-improve.png", :class => "img-responsive", :style => "display: inline;" %>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- End why join Looku -->
+
+    <!-- Section Gain recognition and credibility -->
+    <div class="grey-bg" style="width: 100%; float: left;margin: 0; color: #666 !important;">
+      <div class="col-xs-12 col-sm-12 col-md-10 col-lg-10" style="float: none;margin: 5px auto;
+              border-bottom: 1px solid #d3d3d3; display: flex; padding-bottom: 30px">
+        <div class="row">
+          <div class="col-xs-12 col-sm-12 col-md-5 col-lg-5" style="min-height: 215px;">
+            <p class="box-img text-center" style="margin: 40px 0;">
+              <%#= image_tag "share-and-earn.png", :class => "img-responsive", :style => "display: inline;" %>
+              <%= image_tag "connect-and-share.png", :class => "img-responsive", :style => "display: inline;" %>
+            </p>
+          </div>
+
+          <div class="col-xs-12 col-sm-12 col-md-5 col-lg-5" style="min-height: 215px;">
+            <div class="box-heading" style="margin: 10px 0;padding: 5px 5px;vertical-align: middle;">
+              <!--<h2 class="home-headings" style="margin: 0;">Share and Earn.</h2>-->
+              <h2 class="home-headings" style="margin: 0;">Gain recognition and credibility.</h2>
+            </div>
+            <div class="box-content" style="padding: 5px 5px;">
+              <!--<p>-->
+              <!--Share your knowledge by uploading your assessed student work. Even better, get paid income every time it is viewed.-->
+              <!--</p>-->
+              <p style="text-align: justify">
+                Sharing your academic knowledge on Looku creates a
+                unique opportunity to teach and inspire passionate
+                students everywhere as they learn from you and
+                reference your work like they would any textbook
+                or journal. Get the recognition and credit you deserve for
+                your academic work. You’ve earned it!
+              </p>
+
+              <p class="text-center">
+                <button onclick="window.location.href='<%= new_user_session_path %>'" class="btn btn-green " style="float: none; margin: 10px auto;">
+                  Get Started
+                </button>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- End section Gain recognition and credibility -->
+
+
+    <!-- Section Earn money and impress -->
+    <div class="grey-bg" style="width: 100%; float: left;margin: 0; color: #666 !important;">
+      <div class="col-xs-12 col-sm-12 col-md-10 col-lg-10" style="float: none;margin: 5px auto;">
+        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6" style="min-height: 215px;">
+          <div class="box-heading" style="margin: 10px 0;padding: 5px 5px;vertical-align: middle;">
+            <h2 class="home-headings" style="margin: 0; margin-top: 100px;">Earn money and impress</h2>
+          </div>
+          <div class="box-content" style="padding: 5px 5px;">
+            <p style="text-align: justify">
+              Upload your academic work once and it continues
+              to earn money every time it is viewed on Looku.
+              Improve your employment prospects by sharing
+              your standout Looku profile and reference rating
+              with potential employers.
+            </p>
+
+            <p class="text-center">
+              <button onclick="window.location.href='<%= new_user_session_path %>'" class="btn btn-green " style="float: none; margin: 10px auto;">
+                Get Started
+              </button>
+            </p>
+          </div>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2"></div>
+        <div class="col-xs-12 col-sm-12 col-md-5 col-lg-5" style="min-height: 215px;">
+          <p class="box-img text-center" style="margin: 50px 0;">
+            <%= image_tag "share-and-earn.png", :class => "img-responsive", :style => "display: inline;" %>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Section Ready to monetize your knowledge? -->
+<section class="h-h-l-h bg-white">
+  <div class="container-fluid">
+    <h1 class="color-green text-center heading home-headings">
+      Ready to monetize your knowledge?
+    </h1>
+    <h3 class="text-center" style="margin-top: -25px;"> With Looku ... </h3>
+
+    <div class="small-vertical-margin"></div>
+    <br>
+
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 outer-box" style="float: none; margin: 0 auto;">
+      <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 n-box">
+        <div class="n-box-heading text-center">
+          <i class="fa fa-search" style="font-weight: bold; margin-top: 12px;"></i>
+          <h4 style="font-weight: bold; margin-top: 12px;">
+            You Keep Earning.
+          </h4>
+        </div>
+        <div class="n-box-content uploader-box-content">
+          <p style="padding: 12px">
+            You keep 100% of revenue when you promote your
+            academic work and 50% when Looku
+            promotes it so either way,
+            you win.
+          </p>
+        </div>
+      </div>
+
+      <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 n-box">
+        <div class="n-box-heading text-center">
+          <i class="fa fa-search" style="font-weight: bold; margin-top: 12px;"></i>
+          <h4 style="font-weight: bold; margin-top: 12px;">
+            You Stay Protected.
+          </h4>
+        </div>
+        <div class="n-box-content uploader-box-content">
+          <p style="padding: 12px">
+            Your academic work on Looku can only be viewed
+            within a pre-set time frame and
+            never downloaded by any user
+            so you're protected.
+          </p>
+        </div>
+      </div>
+
+      <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 n-box">
+        <div class="n-box-heading text-center">
+          <i class="fa fa-search" style="font-weight: bold; margin-top: 12px;"></i>
+          <h4 style="font-weight: bold; margin-top: 12px;">
+            You Maintain Control.
+          </h4>
+        </div>
+        <div class="n-box-content uploader-box-content">
+          <p style="padding: 12px">
+            You always own the copyright
+            for any academic work created
+            by you and made accessible to
+            users on Looku so you remain
+            in control.
+          </p>
+        </div>
+      </div>
+
+      <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 n-box">
+        <div class="n-box-heading text-center">
+          <i class="fa fa-search" style="font-weight: bold; margin-top: 12px;"></i>
+          <h4 style="font-weight: bold; margin-top: 12px;">
+            You Get Recognised.
+          </h4>
+        </div>
+        <div class="n-box-content uploader-box-content">
+          <p style="padding: 12px">
+            Your academic work on Looku can
+            now be referenced by passionate
+            students around the world. Get the
+            recognition you deserve.
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="col-xs-12 text-center b-box">
+      <button onclick="window.location.href='<%= new_user_session_path %>'" class="btn btn-green " style="float: none; margin: 10px auto;">
+        Get Started with Looku
+      </button>
+    </div>
+  </div>
+</section>
+<!-- End section Ready to monetize your knowledge? -->
+
+<script>
+    $(function () {
+        $('.move a').bind('click', function (event) {
+            var $anchor = $(this);
+            $('html, body').stop().animate({
+                scrollTop: $($anchor.attr('href')).offset().top - 70
+            }, 1500, 'easeOutExpo');
+            event.preventDefault();
+        });
+    });
+
+</script>
+<style>
+    .n-box .n-box-heading {
+        background: #f8b15f;
+        padding: 3px 0;
+        margin-bottom: 8px;
+        color: #FFF;
+    }
+
+    .n-box .n-box-content {
+        padding: 5px 10px;
+        background: #B5B5B5;
+        color: #FFFFFF;
+    }
+
+    .h-h-l-box .box-heading {
+        color: #81B859;
+        background: #FFFFFF;
+        margin: 10px 0;
+        padding-bottom: 10px;
+        font-weight: bold;
+        -moz-border-radius: 10px;
+        -webkit-border-radius: 10px;
+        border-radius: 10px;
+        -khtml-border-radius: 10px;
+    }
+
+    .h-h-l-box .box-heading h3 {
+        padding: 0;
+        margin: 0;
+        font-weight: bold;
+    }
+
+    .h-h-l-box .box-content {
+        padding: 5px 10px;
+        background: #B5B5B5;
+        color: #FFFFFF;
+        height: 185px;
+        -moz-border-radius: 10px;
+        -webkit-border-radius: 10px;
+        border-radius: 10px;
+        -khtml-border-radius: 10px;
+    }
+
+    .h-h-l-w h1.heading, .h-h-l-h h1.heading {
+        padding: 35px 0;
+    }
+
+    .h-h-l-w .outer-box, .h-h-l-h .outer-box {
+        margin: 40px auto;
+    }
+
+    .h-h-l-w .b-box, .h-h-l-h .b-box {
+        margin: 60px 0;
+    }
+
+    .h-h-l-h {
+        padding: 30px 0;
+    }
+
+    .h-h-l-w {
+        background: #E6E7E8;
+        padding: 30px 0;
+    }
+
+    .h-search-text-field {
+        padding: 25px 25px !important;
+        border: 0;
+        outline: 0;
+    }
+
+    .input-group-addon.h-search {
+        background-color: #FFF;
+        border: 0;
+        outline: 0;
+    }
+
+    .theme-default #main-navbar .navbar-header {
+        background: transparent;
+    }
+
+    .home-bottom .container {
+        padding: 0;
+        background: transparent;
+    }
+
+    .home-bottom {
+        position: absolute;
+        z-index: 3;
+        width: 100%;
+        left: 0;
+        bottom: 120px;
+        text-align: center;
+        opacity: 0.9;
+    }
+
+    .home-title-h1 {
+        color: #FFFFFF;
+        text-align: center;
+        font-weight: bold;
+        font-size: 46px;
+        line-height: 50px;
+        margin-bottom: 14px;
+    }
+
+    .home-title p {
+        font-weight: bold;
+        font-size: 18px;
+    }
+
+    #slider-home {
+        z-index: 99;
+        margin-top: 200px;
+    }
+
+    #content-wrapper {
+        padding-top: 0px;
+    }
+
+    .main-navbar-collapse {
+        opacity: .95;
+    }
+
+    #main-navbar {
+        background-color: transparent;
+    }
+
+    .move .fa-chevron-down {
+        border-radius: 50%;
+        border: 2px solid #fff;
+        font-size: 40px;
+        padding-top: 7px;
+        padding-bottom: 7px;
+        padding-left: 7px;
+        padding-right: 7px;
+        color: #fff;
+        -webkit-transition: 0.2s background linear;
+        -moz-transition: 0.2s background linear;
+        transition: 0.2s background linear;
+    }
+
+    .move .fa-chevron-down:hover {
+        background-color: #fff;
+        color: #121212;
+        text-decoration: none;
+    }
+
+    .move .fa-chevron-down:focus {
+        text-decoration: none;
+    }
+
+    .small-vertical-margin {
+        height: 30px;
+        background-color: #fff;
+    }
+
+    .large-vertical-margin {
+        height: 100px;
+    }
+</style>

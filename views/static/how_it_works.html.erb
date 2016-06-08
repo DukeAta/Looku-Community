@@ -1,0 +1,118 @@
+<!--
+<section class="h-h-l-w">
+    <div class="container-fluid home-box-content">
+      <h1 class="heading text-center home-headings">
+        How Looku Works
+      </h1>
+      <div class="col-xs-12 col-sm-12 col-md-10 col-lg-9 outer-box" style="float: none;">
+        <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 h-h-l-box">
+          <div class="box-heading text-center">
+            <i class="fa fa-search"></i>
+            <h3>Search</h3>
+          </div>
+
+          <div class="box-content">
+            <p>
+              <font style="text-decoration: underline; font-weight: bold;">Quickly search</font> for your specific course, module or Subject using our Looku smart search feature. Get the best results by being as specific as possible. E.g. BA (hons) Marketing, strategic marketing planning, second year.
+            </p>
+          </div>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 h-h-l-box">
+          <div class="box-heading text-center">
+            <i class="fa fa-search"></i>
+            <h3>View</h3>
+          </div>
+
+          <div class="box-content">
+            <p>
+              <font style="text-decoration: underline; font-weight: bold;">Instantly preview</font> and select brilliant student works from a wide range of academic institutions and organisations across the globe. Narrow your search by geographic location or specific academic institution. You’re in control.
+            </p>
+          </div>
+
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 h-h-l-box">
+          <div class="box-heading text-center">
+            <i class="fa fa-search"></i>
+            <h3>Learn</h3>
+          </div>
+
+          <div class="box-content">
+            <p>
+              <font style="text-decoration: underline; font-weight: bold;">Learn directly</font> from current and previous students on Looku. Get new ideas, insights and fresh perspectives from students who studied the same or similar subject, module or course as you.
+            </p>
+          </div>
+
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 h-h-l-box">
+          <div class="box-heading text-center">
+            <i class="fa fa-search"></i>
+            <h3>Improve</h3>
+          </div>
+
+          <div class="box-content">
+            <p>
+              <font style="text-decoration: underline; font-weight: bold;">Effectively improve</font> your ability to get top marks by applying the knowledge gained from studying the assessed works of many experienced students on Looku who have achieved the grades you want.
+            </p>
+          </div>
+
+        </div>
+      </div>
+      <div class="col-xs-12 text-center b-box">
+        <button onclick="window.location.href='<%= new_user_session_path %>'" class="btn btn-green " style="float: none; margin: 10px auto;">
+          Get Started
+        </button>
+      </div>
+    </div>
+  </section>
+
+-->
+<section id="home" class="flex-aic" style="margin-top: 50px;">
+    <div class="home-container text-center container-fluid">
+      <div class="home-title liquid-slider" id="slider-home">
+        
+        <div class="banner-slider">
+            <ul class="bxslider">
+              <li>
+                  <h1 class="home-headings"> Search </h1>
+                  <p style="font-weight: bold; font-size: 18px;"> Quickly search for your specific course, module or Subject using our Looku smart search feature. Get the best results by being as specific as possible. E.g. BA (hons) Marketing, strategic marketing planning, second year. </p>
+                </li>
+                <li>
+                  <h1 class="home-headings"> View </h1>
+                  <p style="font-weight: bold; font-size: 18px;"> Instantly preview and select brilliant student works from a wide range of academic institutions and organisations across the globe. Narrow your search by geographic location or specific academic institution. You’re in control. </p>
+                </li>
+                <li>
+                  <h1 class="home-headings"> Learn</h1>
+                  <p style="font-weight: bold; font-size: 18px;"> Learn directly from current and previous students on Looku. Get new ideas, insights and fresh perspectives from students who studied the same or similar subject, module or course as you. </p>
+                </li>
+                <li>
+                  <h1 class="home-headings"> Improve</h1>
+                  <p style="font-weight: bold; font-size: 18px;"> Effectively improve your ability to get top marks by applying the knowledge gained from studying the assessed works of many experienced students on Looku who have achieved the grades you want. </p>
+                </li>
+            </ul>
+
+            <div id="bx-pager">
+              <a data-slide-index="0" href="">Search</a>
+              <a data-slide-index="1" href="">View</a>
+              <a data-slide-index="2" href="">Learn</a>
+              <a data-slide-index="3" href="">Improve</a>
+            </div>
+
+        </div>
+        <div class="col-xs-12 text-center b-box" style="margin-top: 80px;">
+        <button onclick="window.location.href='<%= new_user_session_path %>'" class="btn btn-green " style="float: none; margin: 10px auto;">
+          Get Started
+        </button>
+      </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+$(document).ready(function() {
+  $('.bxslider').bxSlider({   
+    mode: 'fade',
+    pagerCustom: '#bx-pager'
+  });
+});
+</script>
